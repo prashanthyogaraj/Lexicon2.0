@@ -59,8 +59,8 @@ def ajax(request):
     # return render(request,'Activity.html',context)
 
 def sample(request):
-    li = ['hey', 'u', 'come', 'here']
+    lis = ['hey', 'u', 'come', 'here']
     context = {
-        'li': li,
+        'lis': lis,
     }
     return render(request,'sample.html',context)
