@@ -7,22 +7,27 @@ from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse
 from django.template import loader
 from models import starting
+# from login.models import Login
 from Activity import login
 import time
 
-
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def landing(request):
     if request.method== "POST":
         print "POST"
-    return render(request,'landing.html')
+        uname = request.POST.get("uname")
+        passwd = request.POST.get("pswd")
+        return render(request,'landing.html')
+    elif request.method == "GET":
+        return render(request, 'error404.html')
 
 def activity(request):
     return render(request,'landing.html')
 
 def Review(request):
 
-    name = request.POST.getlist("eng")
-    cmt = request.POST.getlist("area")
+    name = request.POST.getlist("ip")
+    cmt = request.POST.getlist("pass")
     zipped = zip(name,cmt)
 
     for n,c in zipped:
@@ -43,6 +48,7 @@ def ajax(request):
     print "inisde ajax"
     ip=request.POST.get("ip")
     password = request.POST.get("pass")
+
     print 'ip is',ip,'and pass is',password
     detail = login.get_adapter_detail(ip,password)
     context = {

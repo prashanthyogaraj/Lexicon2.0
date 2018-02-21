@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+</head>
+<style>
+    body {
+      font-size: 14px;
+      font-weight: normal;
+      color: #ffffff;
+      background: #222;
+    }
+    h1 {
+      text-align: center;
+      font-size: 35px;
+      margin-top: 40px;
+      font-family: "Comic Sans MS", "Comic Sans", cursive;
+    }
+    .main-wrap {
+  background: #00699C;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+}
+
+.login-main {
+  width: 41%;
+  height: 300px;
+  position: absolute;
+  margin: auto;
+  top: 0px;
+  bottom: 0;
+  left: 700px;
+  right: 0;
+  background: #222;
+  border-left: groove;
+  padding: 10px;
+}
+.login-main p {
+  text-indent: 10px;
+}
+.box1 {
+  background: #222;
+  height: 40px;
+  text-indent: 10px;
+  width: 95%;
+  margin-top: 73px;
+  margin-bottom: 3px;
+  margin-left: 55px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  border: 1px solid;
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 5px 5px;
+}
+.box2 {
+  background: #222;
+  height: 40px;
+  text-indent: 10px;
+  width: 95%;
+  margin-top: 5px;
+  margin-left: 55px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  border: 1px solid;
+  -webkit-border-radius: 0px 0 5px 5px;
+  -moz-border-radius: 0px 0 5px 5px;
+  -ms-border-radius: 0px 0 5px 5px;
+  -o-border-radius: 0px 0 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+input:hover[type=password] {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.19), 0 6px 20px 0 rgba(0,0,0,0.2);
+}
+input:hover[type=text] {
+	box-shadow: 8px 0px 16px 0px rgba(0,0,0,0.19), 6px 0px 20px 0px rgba(0,0,0,0.2);
+
+}
+input:valid {
+
+}
+#admin {
+    padding-left: 750px;
+    padding-top: 40px;
+    height: 80px;
+    width: 80px;
+}
+
+.view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 50px;
+  bottom: 0;
+  -webkit-perspective: 400;
+          perspective: 400;
+}
+
+.plane {
+  width: 120px;
+  height: 120px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.plane.main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-transform: rotateX(60deg) rotateZ(-30deg);
+          transform: rotateX(60deg) rotateZ(-30deg);
+  -webkit-animation: rotate 20s infinite linear;
+          animation: rotate 20s infinite linear;
+}
+.plane.main .circle {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  border-radius: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 0 60px crimson, inset 0 0 60px crimson;
+}
+.plane.main .circle::before, .plane.main .circle::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 10%;
+  height: 10%;
+  border-radius: 100%;
+  background: crimson;
+  box-sizing: border-box;
+  box-shadow: 0 0 60px 2px crimson;
+}
+.plane.main .circle::before {
+  -webkit-transform: translateZ(-90px);
+          transform: translateZ(-90px);
+}
+.plane.main .circle::after {
+  -webkit-transform: translateZ(90px);
+          transform: translateZ(90px);
+}
+.plane.main .circle:nth-child(1) {
+  -webkit-transform: rotateZ(72deg) rotateX(63.435deg);
+          transform: rotateZ(72deg) rotateX(63.435deg);
+}
+.plane.main .circle:nth-child(2) {
+  -webkit-transform: rotateZ(144deg) rotateX(63.435deg);
+          transform: rotateZ(144deg) rotateX(63.435deg);
+}
+.plane.main .circle:nth-child(3) {
+  -webkit-transform: rotateZ(216deg) rotateX(63.435deg);
+          transform: rotateZ(216deg) rotateX(63.435deg);
+}
+.plane.main .circle:nth-child(4) {
+  -webkit-transform: rotateZ(288deg) rotateX(63.435deg);
+          transform: rotateZ(288deg) rotateX(63.435deg);
+}
+.plane.main .circle:nth-child(5) {
+  -webkit-transform: rotateZ(360deg) rotateX(63.435deg);
+          transform: rotateZ(360deg) rotateX(63.435deg);
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotateX(0) rotateY(0) rotateZ(0);
+            transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotateX(0) rotateY(0) rotateZ(0);
+            transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.send {
+  width: 45%;
+  height: 60px;
+  position: absolute;
+  left: 70px;
+  top: 195px;
+  border: 2px groove;
+  display: block;
+  background: #222;
+  font-size: 18px;
+  color: #C0C0C0;
+  font-weight: normal;
+  text-shadow: 1px 1px 2px #000;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+}
+.send:hover {
+  color: yellow;
+  border-color: yellow;
+}
+
+.admin_login {
+  width: 45%;
+  height: 60px;
+  position: absolute;
+  left: 375px;
+  top: 195px;
+  border: 2px groove;
+  display: block;
+  background: #222;
+  font-size: 18px;
+  color: #C0C0C0;
+  font-weight: normal;
+  text-shadow: 1px 1px 2px #000;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+}
+.admin_login:hover {
+  color: red;
+  border-color: red;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-o-keyframes spin {
+  from {
+    -o-transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(360deg);
+  }
+}
+</style>
+<script>
+function getIP(json) {
+  var ipaddr = json.ip;
+  alert("Your IP address is: " + ipaddr);
+}
+</script>
+<script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+<body>
+<h1>
+    Error 404, Incorrect Login or somebody tried to access information without logging in<br>
+      "A mail has been triggered to the ADMINISTRATOR with your IP Address"
+</h1>
+<div class="view">
+  <div class="plane main">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+</div>
+<!--<? php include("ip.php"); ?>-->
+</body>
+</html>

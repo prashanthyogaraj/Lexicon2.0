@@ -4,4 +4,10 @@ from models import starting
 from django.contrib import admin
 
 # Register your models here.
-admin.site.register(starting)
+# admin.site.register(starting)
+# field = ('event',)
+
+class check(admin.ModelAdmin):
+    readonly_fields = ('event',)
+    # readonly_fields = ('events',)
+admin.site.register(starting,check)
