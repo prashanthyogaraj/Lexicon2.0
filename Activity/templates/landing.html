@@ -136,7 +136,7 @@ body {
                         <div class="circle"></div>
                       </div>
                     </div>
-      <a class="navbar-brand" href="#myPage" style="color:white;font-family: Copperplate,Copperplate Gothic Light;margin-left:50px;margin-top : 15px;">LEXICON</a>
+      <a class="navbar-brand" href="#" style="color:white;font-family: Copperplate,Copperplate Gothic Light;margin-left:50px;margin-top : 15px;">LEXICON</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
      <ul class="nav navbar-nav navbar-right">
@@ -152,17 +152,42 @@ body {
           </ul>
         </li>-->
          <div class="dropdown">
-            <button class="dropbtn">Dropdown</button>
+            {%for userdetails in user_database%}
+            <button class="dropbtn">Hello {{userdetails}}</button>
+            {%endfor%}
             <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#" data-toggle="modal" data-target="#myModal">Log out</a>
   </div>
 </div>
      </ul>
     </div>
   </div>
 </nav>
+
+  <!-- Modal Div starts here......-->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">LEXICON</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to Log out?</p>
+           <button type="button" id = "btn1"class="btn btn-primary" onclick="logout()">yes</button>
+            <button type="button"  id = "btn2" data-dismiss="modal" class="btn btn-primary">No</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal div ends here....-->
 <div id="maindiv">
     <div id="subdiv">
              <li class="dropdown">

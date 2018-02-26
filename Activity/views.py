@@ -7,8 +7,8 @@ from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse
 from django.template import loader
 from models import starting
-# from login.models import Login
-from Activity import login
+from login.models import Login
+from Activity import login_server
 import time
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
@@ -17,7 +17,21 @@ def landing(request):
         print "POST"
         uname = request.POST.get("uname")
         passwd = request.POST.get("pswd")
-        return render(request,'landing.html')
+        user_database = Login.objects.filter(user__startswith=str(uname))
+        context = {
+            'user_database': user_database
+
+        }
+        if not user_database:
+            return render(request,'nouser.html')
+        else:
+            for user in user_database:
+                if passwd ==user.pswd:
+                    print 'user name is',user,'and passwd is',passwd,'adn it matched'
+
+                    return render(request,'landing.html',context)
+                else:
+                    return render(request, 'login_pswd.html')
     elif request.method == "GET":
         return render(request, 'error404.html')
 
@@ -50,7 +64,7 @@ def ajax(request):
     password = request.POST.get("pass")
 
     print 'ip is',ip,'and pass is',password
-    detail = login.get_adapter_detail(ip,password)
+    detail = login_server.get_adapter_detail(ip, password)
     context = {
         'li' : li,
     }

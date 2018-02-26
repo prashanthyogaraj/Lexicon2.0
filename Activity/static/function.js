@@ -1,4 +1,4 @@
-function test(){
-
-
+function logout(){
+    window.location="/";
+return false
 }
