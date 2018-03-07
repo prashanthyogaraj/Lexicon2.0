@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from models import starting
+from models import other_testcases
 from django.contrib import admin
 
 # Register your models here.
@@ -10,4 +10,4 @@ from django.contrib import admin
 class check(admin.ModelAdmin):
     readonly_fields = ('event',)
     # readonly_fields = ('events',)
-admin.site.register(starting,check)
+admin.site.register(other_testcases,check)

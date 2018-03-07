@@ -49,7 +49,7 @@ body {
         font-size: 12px;
         font-weight: 200;
         width: 1340px;
-        height: 690px;
+        height: 710px;
         border-radius: 1%;
         background-color: #ECF0D7;
         overflow-y:auto;
@@ -98,23 +98,98 @@ body {
 .btn{
     width : 200px;
 }
+#subbutton{
+    width : 180px;
+    padding : 5px;
+    margin-bottom : 2px;
+    background-color: #ECF0D7;
+    border : groove;
+    color : black;
+
+}
 .caret{
     display : none;
 }
+
+#contentdiv{
+    margin-top : 84px;
+    margin-right : 500px;
+}
+#custom{
+    width : 200px;
+    border : groove 2px;
+    height : 37px;
+    background-color: #ECF0D7;
+
+}
+
 </style>
 <script>
-    function say(){
+    var name=null;
+    var btn_name = null;
+    var opname = null;
+    function getbuttonname(id){
+        name =  document.getElementById(id).innerHTML;
 
-        alert("hello javascript");
     }
-        function say1(){
-
-        alert("hello python");
+    function getoptionname(opid){
+        opname = document.getElementById(opid).innerHTML;
+        btn_name = name;
+        //alert(opname);
+        //alert(btn_name);
     }
 
     function exit(){
-        alert("Lexicon!!!");
+  //  alert("hello");
+
+        var di = document.getElementById("maindiv");
+         var troubleshoot_table = document.createElement("table");
+
+         var row0 = document.createElement("tr");
+         var row1 = document.createElement("tr");
+         var row0_td1 = document.createElement("td");
+         var row1_td1 = document.createElement("td");
+         var row0_inp1 = document.createElement("label")
+         //row0_inp1.readOnly = "True";
+        // row0_inp1.disabled = "True";
+         row0_inp1.innerHTML = btn_name+"_"+opname;
+         row0_inp1.name="labl";
+         row0_inp1.style.marginLeft = "225px";
+         row0_inp1.style.border= "none";
+         row0_inp1.style.marginTop = "20px";
+
+         row0_td1.appendChild(row0_inp1);
+         row0.appendChild(row0_td1);
+         var row1_inp1 = document.createElement("textarea");
+         row1_inp1.id = "textareaid";
+         row1_inp1.name = "textareaname";
+         row1_inp1.rows = "5";
+         row1_inp1.cols = "40";
+         row1_inp1.style.marginLeft = "235px";
+         row1_inp1.style.marginTop = "1px";
+
+         var row2 = document.createElement("tr");
+         var row1_td2= document.createElement("td");
+         var row1_inp2 = document.createElement("input");
+         row1_inp2.type= "number";
+         row1_inp2.id = "effortid";
+         row1_inp2.name = "effortname";
+         row1_inp2.style.marginLeft = "120px";
+         row1_inp2.style.height = "40px";
+         row1_inp2.style.width = "140px";
+         row1_inp2.placeholder = "Effort in HRS";
+         row1_td1.appendChild(row1_inp1);
+         row1_td2.appendChild(row1_inp2);
+         row1.appendChild(row1_td1);
+         row2.appendChild(row1_td2);
+
+         troubleshoot_table.appendChild(row0);
+         troubleshoot_table.appendChild(row1);
+         troubleshoot_table.appendChild(row2);
+         di.appendChild(troubleshoot_table);
     }
+
+
 
 </script>
 
@@ -191,29 +266,29 @@ body {
 <div id="maindiv">
     <div id="subdiv">
              <li class="dropdown">
-             <button class="btn btn-primary dropdown-toggle task" type="button" data-toggle="dropdown"  style="margin-top:1px;  border : none;">Requirement Gathering
+             <button class="btn btn-primary dropdown-toggle task" id ="Req_gather" onclick="getbuttonname(id)" type="button" data-toggle="dropdown"  style="margin-top:1px;  border : none;">Requirement Gathering</button>
             <span class="caret" ></span></button>
           <ul class="dropdown-menu">
-              <li><a href="#" style="a:hover: yellow;">Firmware Review</a></li>
-              <li><a href="#">PRD/PID Review</a></li>
-              <li><a href="#">DriverIso/VDS Review</a></li>
-              <li><a href="#">Basesheet creation/review</a></li>
-              <li><a href="#">Product Understanding</a></li>
-              <li><a href="#">Others</a></li>
+              <li><a href="#" id="fw_review" onclick="getoptionname(id)" >Firmware Review</a></li>
+              <li><a href="#" id="prdreview" onclick="getoptionname(id)">PRD/PID Review</a></li>
+              <li><a href="#" id="vdsreview" onclick="getoptionname(id)">DriverIso/VDS Review</a></li>
+              <li><a href="#" id="basesheetreview" onclick="getoptionname(id)">Basesheet creation/review</a></li>
+              <li><a href="#" id="prdunderstand" onclick="getoptionname(id)">Product Understanding</a></li>
+              <li><a href="#" id="req_other" onclick="getoptionname(id)">Others</a></li>
           </ul>
         </li>
         <li class="dropdown">
-             <button class="btn btn-primary dropdown-toggle task" type="button" data-toggle="dropdown"  style="margin-top:1px;  border : none;">Planning
-            <span class="caret" ></span></button>
+             <button class="btn btn-primary dropdown-toggle task" id="plan" onclick="getbuttonname(id)" type="button" data-toggle="dropdown"  style="margin-top:1px;  border : none;">Planning</button>
+            <span class="caret" ></span>
              <ul class="dropdown-menu">
-            <li><a href="#" style="a:hover: yellow;">Create/Modify Plan</a></li>
-            <li><a href="#">Review</a></li>
-            <li><a href="#">Create/Modify Test Case</a></li>
+            <li><a href="#"id="modify_plan" onclick="getoptionname(id)">Create/Modify Plan</a></li>
+            <li><a href="#" id="review" onclick="getoptionname(id)">Review</a></li>
+            <li><a href="#" id="modify_testcase" onclick="getoptionname(id)">Create/Modify Test Case</a></li>
           </ul>
         </li>
         <li class="dropdown">
-             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:1px;  border : none;">Test Execution
-            <span class="caret" ></span></button>
+             <button class="btn btn-primary dropdown-toggle" type="button" id="Test_Execution" onclick="getbuttonname(id)" data-toggle="dropdown" style="margin-top:1px;  border : none;">Test Execution</button>
+            <span class="caret" ></span>
              <ul class="dropdown-menu">
             <li><a href="#">TestBed Setup</a></li>
             <li><a href="#">Execution</a></li>
@@ -222,74 +297,86 @@ body {
           </ul>
         </li>
         <li class="dropdown">
-             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:1px;  border : none;">Test Reporting
-            <span class="caret" ></span></button>
+             <button class="btn btn-primary dropdown-toggle" type="button" id="Test Reporting" onclick="getbuttonname(id)" data-toggle="dropdown" style="margin-top:1px;  border : none;">Test Reporting</button>
+            <span class="caret" ></span>
              <ul class="dropdown-menu">
-            <li><a href="#">Status Update</a></li>
-            <li><a href="#">HCL Preparation</a></li>
-            <li><a href="#">HCL Review</a></li>
+            <li><a href="#" id="statusupdate" onclick="getoptionname(id)">Status Update</a></li>
+            <li><a href="#" id="hcl_prepare" onclick="getoptionname(id)">HCL Preparation</a></li>
+            <li><a href="#" id="hcl-review" onclick="getoptionname(id)">HCL Review</a></li>
           </ul>
         </li>
         <li class="dropdown">
-             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:1px;  border : none;">Data Collection
-            <span class="caret" ></span></button>
+             <button class="btn btn-primary dropdown-toggle" type="button" id="datacollection" onclick="getbuttonname(id)" data-toggle="dropdown" style="margin-top:1px;  border : none;">Data Collection</button>
+            <span class="caret" ></span>
              <ul class="dropdown-menu">
-            <li><a href="#">TestMetrics Collection</a></li>
+            <li><a href="#" id="tm_collect" onclick="getoptionname(id)">TestMetrics Collection</a></li>
           </ul>
         </li>
       <li class="dropdown">
-             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:1px;  border : none;">ORG Activity
-            <span class="caret" ></span></button>
+             <button class="btn btn-primary dropdown-toggle" type="button" id="org_act" onclick="getbuttonname(id)" data-toggle="dropdown" style="margin-top:1px;  border : none;">ORG Activity</button>
+            <span class="caret" ></span>
              <ul class="dropdown-menu">
-            <li><a href="#">Interviews</a></li>
-            <li><a href="#">Initiatives</a></li>
-            <li><a href="#">others</a></li>
+            <li><a href="#" id="interview" onclick="getoptionname(id)">Interviews</a></li>
+            <li><a href="#" id="inititative" onclick="getoptionname(id)">Initiatives</a></li>
+            <li><a href="#" id="org_others" onclick="getoptionname(id)">others</a></li>
           </ul>
       </li>
 
        <li class="dropdown">
-             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:1px;  border : none;">Value Adds
-            <span class="caret" ></span></button>
+             <button class="btn btn-primary dropdown-toggle" type="button" id="valueadds" onclick="getbuttonname(id)" data-toggle="dropdown" style="margin-top:1px;  border : none;">Value Adds</button>
+            <span class="caret" ></span>
              <ul class="dropdown-menu">
-            <li><a href="#">White Papers</a></li>
-            <li><a href="#">Patents</a></li>
-            <li><a href="#">others</a></li>
+            <li><a href="#" id="whitepaper" onclick="getoptionname(id)">White Papers</a></li>
+            <li><a href="#" id="patent" onclick="getoptionname(id)">Patents</a></li>
+            <li><a href="#"id="value_other" onclick="getoptionname(id)">others</a></li>
           </ul>
       </li>
 
         <li class="dropdown">
-             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:1px;  border : none;">Self Learning
-            <span class="caret" ></span></button>
+             <button class="btn btn-primary dropdown-toggle" type="button" id="self_learning" onclick="getbuttonname(id)" data-toggle="dropdown" style="margin-top:1px;  border : none;">Self Learning</button>
+            <span class="caret" ></span>
              <ul class="dropdown-menu">
-            <li><a href="#">Certifications</a></li>
-            <li><a href="#">Yorbit</a></li>
-            <li><a href="#">others</a></li>
+            <li><a href="#" id="certifications" onclick="getoptionname(id)">Certifications</a></li>
+            <li><a href="#" id="yorbit" onclick="getoptionname(id)">Yorbit</a></li>
+            <li><a href="#" id="self_others" onclick="getoptionname(id)">others</a></li>
           </ul>
       </li>
 
         <li class="dropdown">
-             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:1px;  border : none;">Team Activities
-            <span class="caret" ></span></button>
+             <button class="btn btn-primary dropdown-toggle" type="button" id="Team Activity" onclick="getbuttonname(id)" data-toggle="dropdown" style="margin-top:1px;  border : none;">Team Activities</button>
+            <span class="caret" ></span>
              <ul class="dropdown-menu">
-            <li><a href="#">Tech Sessions</a></li>
-            <li><a href="#">KT</a></li>
-            <li><a href="#">Interviews</a></li>
-            <li><a href="#">Team Outing/Lunch/Other</a></li>
+            <li><a href="#" id="tech" onclick="getoptionname(id)">Tech Sessions</a></li>
+            <li><a href="#" id="kt" onclick="getoptionname(id)">KT</a></li>
+            <li><a href="#" id="team_interview" onclick="getoptionname(id)">Interviews</a></li>
+            <li><a href="#" id="outing" onclick="getoptionname(id)">Team Outing/Lunch/Other</a></li>
           </ul>
       </li>
 
         <li class="dropdown">
-             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:1px;  border : none;">Automation
-            <span class="caret" ></span></button>
+             <button class="btn btn-primary dropdown-toggle" type="button" id ="Automation" onclick="getbuttonname(id)" data-toggle="dropdown" style="margin-top:1px;  border : none;">Automation</button>
+            <span class="caret" ></span>
              <ul class="dropdown-menu">
-            <li><a href="#">Planning</a></li>
-            <li><a href="#">Scripting</a></li>
-            <li><a href="#">Unit Testing</a></li>
-            <li><a href="/Review" onclick="test()">Review</a></li>
+            <li><a href="#" id="auto_plan" onclick="getoptionname(id)">Planning</a></li>
+            <li><a href="#" id="scripting" onclick="getoptionname(id)">Scripting</a></li>
+            <li><a href="#" id="testing" onclick="getoptionname(id)">Unit Testing</a></li>
+            <li><a href="/Review" id="auto_review" onclick="getoptionname(id)">Review</a></li>
           </ul>
       </li>
     </div>
+    <form id="other_testcaseform" method="POST" action="/Activity/save_othertestcase/">{% csrf_token %}
+        <div id="contentdiv">
+            <select id="custom" onchange="alltestcase()">
+                <option>Select Release</option>
+                <option>GPMR1</option>
+                <option>GPMR2</option>
+                <option>GP</option>
 
+            </select>
+            <button type="submit" id="subbutton" class="btn btn-success">Submit</button>
+
+            </div>
+        </form>
 </div>
 </body>
 </html>
