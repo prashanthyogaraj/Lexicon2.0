@@ -13,6 +13,17 @@ import datetime
 #     # events = models.DateField(auto_now_add=True, editable=True)
 #     def __str__(self):
 #         return self.name
+class testbed_config(models.Model):
+    engineer = models.CharField(max_length=20)
+    Tims_id = models.CharField(max_length=50)
+    adapter_name = models.CharField(max_length=9999)
+    osname = models.CharField(max_length=100)
+    boot_method = models.CharField(max_length=100)
+    boot_adapter= models.CharField(max_length=100)
+    event = models.DateTimeField(auto_now=True, editable=True)
+
+    def __str__(self):
+        return self.Tims_id
 
 class other_testcases(models.Model):
     engineer = models.CharField(max_length=20)

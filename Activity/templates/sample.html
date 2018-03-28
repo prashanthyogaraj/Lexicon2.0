@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
- <link rel="html" href="landing.html">
+
 <body>
-    {%for i in li%}
-    <input type="text" id="sample" value="{{i}}"><br><br>
-    {%endfor%}
+    <form id="submit_testcase" method="POST" action = "/Activity/upload_testcase_implementation/">{% csrf_token %}
+    <input type="file" name ="file" id="file"><br><br>
+    <input type = "submit">
+    </form>
 </body>
 </html>
